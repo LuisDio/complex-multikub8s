@@ -21,3 +21,6 @@ generic --> type of secret(as example generic, tls, docker-registry)
 
 key=value --> Key-value pair of the secret information
 ```
+```
+kubectl get secrets
+```
