@@ -7,12 +7,12 @@ spec:
   selector:
     matchLabels:
       component: postgres
-  template:
+  template: #use for every pods that's created by the deployment
     metadata:
       labels:
         component: postgres
     spec:
-      volumes:
+      volumes: # volume that should be claimed(allocate the storage)
         - name: postgres-storage
           persistentVolumeClaim:
             claimName: database-persistent-volume-claim
@@ -21,9 +21,9 @@ spec:
           image: postgres
           ports:
             - containerPort: 5432
-          volumeMounts:
+          volumeMounts: # How to use it inside the container
             - name: postgres-storage
-              mountPath: /var/lib/postgresql/data
+              mountPath: /var/lib/postgresql/data # where inside the container storage is made available
               subPath: postgres
           env:
             - name: PGPASSWORD
