@@ -24,3 +24,7 @@ key=value --> Key-value pair of the secret information
 ```
 kubectl get secrets
 ```
+
+```
+minikube dashboard -->  dashboard
+```
